@@ -14,40 +14,51 @@
   <main class="app">
     <header>
       <div>
-        <div class="eyebrow">FAST V2</div>
+        <div class="eyebrow">FAST V3</div>
         <h1>🚗 대리콜 매니저</h1>
-        <p>스크린샷 → iPhone OCR → 즉시 콜 분석</p>
+        <p>캡처 이미지 선택 → 자동 인식 → 콜 분석</p>
       </div>
     </header>
-
     <section class="hero">
-      <div class="hero-title">초고속 분석</div>
-      <div class="hero-sub">카카오/T맵 화면을 캡처한 뒤 iPhone 단축어에서 <b>대리콜 분석</b>을 실행하세요.</div>
+      <div class="hero-title">초간편 콜 분석</div>
+      <div class="hero-sub">
+        카카오 또는 T맵 콜 화면을 선택하면 글자를 인식해 분석할 수 있어요.
+      </div>
       <button id="demoBtn" class="primary">샘플 콜로 테스트</button>
     </section>
-
     <section class="card">
-      <label for="textInput">OCR 텍스트</label>
-      <textarea id="textInput" placeholder="단축어가 전달한 텍스트가 여기에 들어옵니다. 직접 붙여넣어도 됩니다."></textarea>
+      <label for="imageInput">📸 콜 화면 캡처 선택</label>
+      <input id="imageInput" type="file" accept="image/*">
+      <img id="imagePreview" class="hidden" alt="선택한 콜 화면 미리보기">
+      <button id="ocrBtn" class="primary full" disabled>
+        이미지 글자 인식하기
+      </button>
+      <p id="ocrStatus" class="note">이미지를 선택해 주세요.</p>
+    </section>
+    <section class="card">
+      <label for="textInput">인식된 텍스트</label>
+      <textarea id="textInput" placeholder="이미지에서 인식한 글자가 여기에 표시됩니다. 직접 수정하거나 붙여넣을 수도 있어요."></textarea>
       <div class="actions">
-        <button id="analyzeBtn" class="primary">⚡ 즉시 분석</button>
+        <button id="analyzeBtn" class="primary">⚡ 콜 분석</button>
         <button id="clearBtn" class="secondary">지우기</button>
       </div>
     </section>
-
     <section id="result" class="card result hidden"></section>
-
     <section class="card">
-      <h2>사용 순서</h2>
+      <h2>사용 방법</h2>
       <ol>
-        <li>카카오/T맵에서 콜 화면을 캡처</li>
-        <li>사진 공유 → <b>대리콜 분석</b> 단축어 실행</li>
-        <li>iPhone이 이미지에서 글자를 추출</li>
-        <li>이 페이지가 자동으로 열리며 즉시 점수 계산</li>
+        <li>콜 화면을 캡처합니다.</li>
+        <li>위에서 캡처 이미지를 선택합니다.</li>
+        <li>이미지 글자 인식하기를 누릅니다.</li>
+        <li>인식 결과를 확인하고 콜 분석을 누릅니다.</li>
       </ol>
-      <p class="note">웹에서 별도 AI OCR을 기다리지 않고, iPhone 단축어의 이미지 텍스트 인식을 먼저 사용하도록 설계했습니다.</p>
+      <p class="note">
+        이미지 글자 인식에는 인터넷 연결이 필요할 수 있습니다.
+        인식 결과가 정확하지 않으면 텍스트를 직접 수정해 주세요.
+      </p>
     </section>
   </main>
-<script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
