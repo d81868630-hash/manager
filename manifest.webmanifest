@@ -1,13 +1,9 @@
 {
-  "name": "대리콜 매니저",
-  "short_name": "대리콜",
-  "id": "./",
-  "start_url": "./",
-  "display": "standalone",
-  "background_color": "#080b12",
-  "theme_color": "#080b12",
-  "lang": "ko-KR",
-  "icons": [
-    {"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
-  ]
+  "name":"대리콜 매니저 FAST V2",
+  "short_name":"대리콜",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#f3f4f6",
+  "theme_color":"#111827",
+  "lang":"ko"
 }
